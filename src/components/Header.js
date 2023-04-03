@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import Profile from "./Profile";
 
-const Header = (props) => {
+const Header = () => {
   const user = useSelector((state) => state.user.value);
   const [showUser, setShowUser] = useState("");
   return (
