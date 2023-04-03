@@ -4,10 +4,16 @@ import { Routes, Route } from "react-router-dom";
 import Login from "./Login";
 import Home from "./Home";
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { auth } from "../firebase";
+import { onAuthStateChanged } from "firebase/auth";
+import { signIn } from "../App/userSlice";
 
 import Header from "./Header";
 
 const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {});
   return (
     <div id="main">
       <Routes>
