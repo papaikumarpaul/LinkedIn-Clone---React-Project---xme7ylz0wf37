@@ -1,9 +1,16 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
+import { useDispatch, useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
+import { googleSignIn } from "../App/userSlice";
 
-const Login = (props) => {
+const Login = () => {
+  const user = useSelector((state) => state.user.value);
+  const dispatch = useDispatch();
+
   return (
     <Container>
+      {user && <Navigate Link={""} />}
       <Nav>
         <a href="/">
           <img src="public/images/login-logo.svg" alt="logo" />
@@ -19,7 +26,7 @@ const Login = (props) => {
           <img src="public/images/login-hero.svg" alt="" />
         </Hero>
         <Form>
-          <Google>
+          <Google onClick={() => dispatch(googleSignIn())}>
             <img src="public/images/google.svg" alt="" />
             Sign in with Google
           </Google>
