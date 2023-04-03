@@ -1,80 +1,90 @@
-import React, { startTransition } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
+import Profile from "./Profile";
 
 const Header = (props) => {
+  const user = useSelector((state) => state.user.value);
+  const [showUser, setShowUser] = useState("");
   return (
-    <div>
-      <Container>
-        <Content>
-          <Logo>
-            <a href="/home">
-              <img src="public/images/home-logo.svg" alt="" />
-            </a>
-          </Logo>
-          <Search>
-            <div>
-              <input type="text" placeholder="Search" />
-            </div>
-            <SearchIcon>
-              <img src="public/images/search-icon.svg" alt="" />
-            </SearchIcon>
-          </Search>
-          <Nav>
-            <NavList>
-              <NavItem className="active">
-                <a>
-                  <img src="public/images/nav-home.svg" alt="" />
-                  <span>Home</span>
-                </a>
-              </NavItem>
-              <NavItem>
-                <a>
-                  <img src="public/images/nav-network.svg" alt="" />
-                  <span> My Network</span>
-                </a>
-              </NavItem>
-              <NavItem>
-                <a>
-                  <img src="public/images/nav-jobs.svg" alt="" />
-                  <span> Jobs</span>
-                </a>
-              </NavItem>
-              <NavItem>
-                <a>
-                  <img src="public/images/nav-messaging.svg" alt="" />
-                  <span>Messaging</span>
-                </a>
-              </NavItem>
-              <NavItem>
-                <a>
-                  <img src="public/images/nav-notifications.svg" alt="" />
-                  <span>Notifications</span>
-                </a>
-              </NavItem>
-              <User>
-                <a>
-                  <img src="public/images/user.svg" alt="" />
-                  <span>Me</span>
-                  <img src="public/images/down/icon.svg " alt="" />
-                </a>
-                <SignOut>
-                  <a>sign out</a>
-                </SignOut>
-              </User>
-              <Work>
-                <a>
-                  <img src="public/images/nav-work.svg" alt="" />
-                  <span>
-                    Work
-                    <img src="public/images/down-icon.svg" alt="" />
-                  </span>
-                </a>
-              </Work>
-            </NavList>
-          </Nav>
-        </Content>
-      </Container>
-    </div>
+    <Container>
+      {!user && <Navigate to="/" />}
+      <Content>
+        <Logo>
+          <a href="/home">
+            <img src="public/images/home-logo.svg" alt="" />
+          </a>
+        </Logo>
+        <Search>
+          <div>
+            <input type="text" placeholder="Search" />
+          </div>
+          <SearchIcon>
+            <img src="public/images/search-icon.svg" alt="" />
+          </SearchIcon>
+        </Search>
+        <Nav>
+          <NavList>
+            <NavItem className="active">
+              <a>
+                <img src="public/images/nav-home.svg" alt="" />
+                <span>Home</span>
+              </a>
+            </NavItem>
+            <NavItem>
+              <a>
+                <img src="public/images/nav-network.svg" alt="" />
+                <span> My Network</span>
+              </a>
+            </NavItem>
+            <NavItem>
+              <a>
+                <img src="public/images/nav-jobs.svg" alt="" />
+                <span> Jobs</span>
+              </a>
+            </NavItem>
+            <NavItem>
+              <a>
+                <img src="public/images/nav-messaging.svg" alt="" />
+                <span>Messaging</span>
+              </a>
+            </NavItem>
+            <NavItem>
+              <a>
+                <img src="public/images/nav-notifications.svg" alt="" />
+                <span>Notifications</span>
+              </a>
+            </NavItem>
+            <User onClick={() => setShowUser(!showUser)}>
+              {user && user.photURL ? (
+                <img src={user.photURL} alt="user" />
+              ) : (
+                <img src="public/images/user.svg" alt="" />
+              )}
+
+              <span>
+                Me
+                <img src="public/images/down/icon.svg " alt="" />
+              </span>
+              {showUser && <Profile />}
+              {/* <SignOut>
+                <a>sign out</a>
+              </SignOut> */}
+            </User>
+            <Work>
+              <a>
+                <img src="public/images/nav-work.svg" alt="" />
+                <span>
+                  Work
+                  <img src="public/images/down-icon.svg" alt="" />
+                </span>
+              </a>
+            </Work>
+          </NavList>
+        </Nav>
+      </Content>
+    </Container>
   );
 };
 const Container = styled.div`
