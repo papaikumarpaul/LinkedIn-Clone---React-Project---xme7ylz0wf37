@@ -12,7 +12,7 @@ const Header = () => {
       {!user && <Navigate to="/" />}
       <Content>
         <Logo>
-          <a href="/home">
+          <a href="/feed">
             <img src="public/images/home-logo.svg" alt="" />
           </a>
         </Logo>
