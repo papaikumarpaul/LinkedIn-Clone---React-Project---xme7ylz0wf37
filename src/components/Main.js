@@ -1,68 +1,677 @@
 import React from "react";
+// import { useSelector } from "react-redux";
+// import styled from "styled-components";
+
+// const Main = (props) => {
+//   return (
+//     <Container>
+//       <ShareBox>
+//         Share
+//         <div>
+//           <img src="public/images/user.svg" alt="" />
+//           <button>Start a post</button>
+//         </div>
+//         <div>
+//           <button>
+//             <img src="public/images/photo-icon.svg" alt="" />
+//             <span>Photos</span>
+//           </button>
+//           <button>
+//             <img src="public/images/vedio-icon.svg" alt="" />
+//             <span>Video</span>
+//           </button>
+//           <button>
+//             <img src="public/images/photo-icon.svg" alt="" />
+//             <span>Event</span>
+//           </button>
+//           <button>
+//             <img src="public/images/article-icon.svg" alt="" />
+//             <span>Write article</span>
+//           </button>
+//         </div>
+//       </ShareBox>
+//       <div>
+//         <Article>
+//           <Actor>
+//             <a>
+//               <img src="public/images/user.svg" alt="" />
+//               <div>
+//                 <span>Title</span>
+//                 <span>Info</span>
+//                 <span>Date</span>
+//               </div>
+//             </a>
+//             <button>
+//               <img src="public/images/ellipsis.svg" alt="" />
+//             </button>
+//           </Actor>
+//           <Description>Description</Description>
+//           <SharedImg>
+//             <a>
+//               <img
+//                 src="https://st2.depositphotos.com/3591429/6011/i/450/depositphotos_60117009-stock-photo-people-and-single-word-share.jpg"
+//                 alt=""
+//               />
+//             </a>
+//           </SharedImg>
+//           <SocialContents>
+//             <li>
+//               <button>
+//                 <img
+//                   src="https://static-exp1.licdn.com/sc/h/8ekq8gho1ruaf8i7f86vd1ftt"
+//                   alt="likes"
+//                 />
+//                 {/* <img
+//                   src="https://www.userflow.nl/images/Linkedin-Celebrate-Icon-ClappingHands250.png"
+//                   alt="likes"
+//                 /> */}
+//                 <span>75</span>
+//               </button>
+//             </li>
+//             <li>
+//               <a>2 comments</a>
+//             </li>
+//           </SocialContents>
+//           <SocialActions>
+//             <button>
+//               <img src="public/images/like.svg" alt="likes" />
+//               <span>Like</span>
+//             </button>
+//             <button>
+//               <img src="public/images/comment.svg" alt="likes" />
+//               <span>Comment</span>
+//             </button>
+//             <button>
+//               <img src="public/images/share.svg" alt="likes" />
+//               <span>Share</span>
+//             </button>
+//             <button>
+//               <img src="public/images/send.svg" alt="likes" />
+//               <span>Send</span>
+//             </button>
+//           </SocialActions>
+//         </Article>
+//       </div>
+//     </Container>
+//   );
+// };
+// const Container = styled.div`
+//   grid-area: main;
+// `;
+// const CommonCard = styled.div`
+//   overflow: hidden;
+//   text-align: center;
+//   margin-bottom: 8px;
+//   background-color: white;
+//   border-radius: 5px;
+//   border: none;
+//   position: relative;
+//   box-shadow: 0 0 0 1px rgb(0 0 0 / 15%), 0 0 0 rgb(0 0 0 / 20%);
+// `;
+
+// const UploadingBox = styled(CommonCard)`
+//   text-align: start;
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   padding: 10px 16px;
+//   color: rgba(0, 0, 0, 0.7);
+//   position: relative;
+//   & > img {
+//     width: fit-content;
+//   }
+//   .progress {
+//     margin-top: 5px;
+//     display: flex;
+//     align-items: center;
+//     gap: 8px;
+//     width: 400px;
+//     .bar {
+//       width: 100%;
+//       height: 8px;
+//       border-radius: 10px;
+//       background-color: rgba(0, 0, 0, 0.08);
+//       overflow: hidden;
+//       position: relative;
+//       span {
+//         position: absolute;
+//         height: 100%;
+//         background-color: #576779;
+//       }
+//     }
+//     @media (max-width: 768px) {
+//       width: 230px;
+//     }
+//   }
+// `;
+
+// const ShareBox = styled(CommonCard)`
+//   display: flex;
+//   flex-direction: column;
+//   color: #958b7b;
+//   margin: 0 0 8px;
+//   background-color: white;
+//   div {
+//     button {
+//       color: rgba(0, 0, 0, 0.6);
+//       outline: none;
+//       border: none;
+//       background-color: transparent;
+//       min-height: 48px;
+//       line-height: 1.5;
+//       font-size: 14px;
+//       font-weight: 600;
+//       display: flex;
+//       align-items: center;
+//       transition: 0.2s;
+//       padding: 8px;
+//       cursor: pointer;
+//       &:hover {
+//         background-color: rgba(0, 0, 0, 0.08);
+//       }
+//     }
+//     &:first-child {
+//       display: flex;
+//       align-items: center;
+//       padding: 8px 16px 0 16px;
+//       img {
+//         width: 48px;
+//         border-radius: 50%;
+//         margin-right: 8px;
+//       }
+//       button {
+//         margin: 4px 0;
+//         flex-grow: 1;
+//         padding-left: 16px;
+//         border: 1px solid rgba(0, 0, 0, 0.15);
+//         border-radius: 35px;
+//       }
+//     }
+//     &:last-child {
+//       display: flex;
+//       justify-content: space-around;
+//       flex-wrap: wrap;
+//       padding-bottom: 4px;
+//       button {
+//         border-radius: 5px;
+//         img {
+//           margin: 0 10px 0 -2px;
+//         }
+//         span {
+//           color: #502323;
+//         }
+//       }
+//     }
+//   }
+// `;
+// /*_________________________________________*/
+// const Article = styled(CommonCard)`
+//   padding: 0;
+//   margin: 0 0 8px;
+//   overflow: visible;
+// `;
+// /*_________________________________________*/
+// const Actor = styled.div`
+//   padding-right: 40px;
+//   flex-wrap: nowrap;
+//   padding: 12px 16px 0;
+//   display: flex;
+//   /* justify-content: space-between; */
+//   margin-bottom: 8px;
+//   align-items: center;
+//   /* position: relative; */
+//   a {
+//     overflow: hidden;
+//     display: flex;
+//     margin-right: 12px;
+//     flex-grow: 1;
+//     text-decoration: none;
+
+//     img {
+//       width: 48px;
+//       height: 48px;
+//       border-radius: 50%;
+//       margin-right: 10px;
+//     }
+//     & > div {
+//       display: flex;
+//       flex-direction: column;
+//       flex-grow: 1;
+//       flex-basis: 0;
+//       margin-left: 8px;
+//       overflow: hidden;
+//       span {
+//         text-align: left;
+//         &:first-child {
+//           font-size: 14px;
+//           font-weight: 700;
+//           color: rgba(0, 0, 0, 1);
+//         }
+//         &:last-child {
+//           font-size: 12px;
+//           color: rgba(0, 0, 0, 0.6);
+//         }
+//       }
+//     }
+//   }
+//   button {
+//     position: absolute;
+//     right: 12px;
+//     top: 0;
+//     background-color: transparent;
+//     border: none;
+//     /* cursor: pointer;
+//     padding: 5px;
+//     border-radius: 50px; */
+//     /* &:hover {
+//       background-color: rgba(0, 0, 0, 0.08);
+//     } */
+//   }
+// `;
+// /*_________________________________________*/
+// const EditModel = styled.ul`
+//   animation: fadeIn 0.5s;
+//   text-align: start;
+//   position: absolute;
+//   right: 5px;
+//   top: 55px;
+//   background-color: white;
+//   box-shadow: 0 0 0 1px rgb(0 0 0 / 15%), 0 6px 9px rgb(0 0 0 / 20%);
+//   border-radius: 8px;
+//   overflow: hidden;
+//   z-index: 99;
+//   min-width: 250px;
+//   li {
+//     display: flex;
+//     padding: 10px;
+//     align-items: center;
+//     gap: 8px;
+//     cursor: pointer;
+//     transition: 0.3s;
+//     &:hover {
+//       background-color: rgba(0, 0, 0, 0.08);
+//     }
+//     img {
+//       width: 18px;
+//       height: 20px;
+//     }
+//     h6 {
+//       font-size: 14px;
+//       color: rgba(0, 0, 0, 1);
+//       font-weight: 600;
+//     }
+//     .info {
+//       text-align: start;
+//       span {
+//         font-size: 12px;
+//         display: block;
+//         color: rgba(0, 0, 0, 0.6);
+//       }
+//     }
+//   }
+// `;
+// /*_________________________________________*/
+// const Description = styled.div`
+//   font-size: 14px;
+//   text-align: left;
+//   padding: 0 16px;
+//   color: rgba(0, 0, 0, 0.9);
+//   overflow: hidden;
+// `;
+// /*_________________________________________*/
+// const SharedImg = styled.div`
+//   width: 100%;
+//   max-height: 500px;
+//   position: relative;
+//   background-color: #f9fafb;
+//   margin-top: 8px;
+//   overflow: hidden;
+//   img {
+//     object-fit: contain;
+//     max-height: 100%;
+//     max-width: 100%;
+//   }
+// `;
+// /*_________________________________________*/
+// const SocialContents = styled.ul`
+//   line-height: 1.3;
+//   display: flex;
+//   /* justify-content: space-between; */
+//   align-items: flex-start;
+//   margin: 0 16px;
+//   padding: 8px 0;
+//   overflow: auto;
+//   border-bottom: 1px solid #e9e5df;
+//   list-style: none;
+
+//   li {
+//     margin-right: 5px;
+//     font-size: 12px;
+//     button {
+//       display: flex;
+//     }
+//   }
+// `;
+// /*_________________________________________*/
+// const SocialActions = styled.div`
+//   padding: 0 16px;
+//   display: flex;
+//   justify-content: space-between;
+//   min-height: 40px;
+//   overflow: hidden;
+//   button {
+//     outline: 0;
+//     color: rgba(0, 0, 0, 0.6);
+//     padding: 12px 24px;
+//     background-color: transparent;
+//     display: flex;
+//     align-items: center;
+//     cursor: pointer;
+//     gap: 5px;
+//     border: 0;
+//     border-radius: 5px;
+//     transition: 0.2s;
+//     font-weight: 600;
+
+//     @media (max-width: 768px) {
+//       flex-direction: column;
+//       padding: 10px;
+//       margin: 0;
+//       font-size: 12px;
+//     }
+//   }
+// `;
+// export default Main;
+
+import { useCallback, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
+// import PostModel from "./PostModel";
+import {
+  addDoc,
+  collection,
+  deleteDoc,
+  doc,
+  onSnapshot,
+  orderBy,
+  query,
+  Timestamp,
+  updateDoc,
+} from "firebase/firestore";
+import { db, storage } from "../firebase";
+import ReactPlayer from "react-player";
+import fuzzyTime from "fuzzy-time";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+// import Comment from "./Comment";
 
-const Main = (props) => {
+const Main = () => {
+  const user = useSelector((state) => state.user.value);
+  const [posts, setPosts] = useState([]);
+  const [showModel, setShowModel] = useState(false);
+  const [showComments, setShowComments] = useState([]);
+  const [showEditPost, setShowEditPost] = useState(false);
+  const [load, setLoad] = useState("");
+
+  const hideModel = () => {
+    setShowModel(false);
+  };
+
+  const uploadPost = useCallback(
+    (post) => {
+      // Upload File.
+      const storageRef = ref(
+        storage,
+        post.image ? `images/${post.image.name}` : `vedios/${post.vedio.name}`
+      );
+      const upload = uploadBytesResumable(
+        storageRef,
+        post.image ? post.image : post.vedio
+      );
+
+      // Listen for state changes, errors, and completion.
+      upload.on(
+        "state_changed",
+        (snapshot) => {
+          console.log(snapshot);
+          const progress =
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          setLoad(progress);
+          if (snapshot.state === "RUNNING") {
+            setLoad(progress);
+          }
+        },
+        (error) => {
+          console.log(error.code);
+        },
+        async () => {
+          const url = await getDownloadURL(upload.snapshot.ref);
+          // Add to DataBase
+          await addDoc(collection(db, "Articles"), {
+            user: {
+              name: user.displayName,
+              title: user.email,
+              photo: user.photoURL,
+            },
+            date: Timestamp.now(),
+            sharedImage: post.image ? url : "",
+            sharedVedio: post.vedio ? url : "",
+            description: post.text,
+            comments: [],
+            likes: [],
+          });
+          setLoad();
+        }
+      );
+    },
+    [user]
+  );
+
+  useEffect(() => {
+    const getPosts = async () => {
+      const q = await query(
+        collection(db, "Articles"),
+        orderBy("date", "desc")
+      );
+      onSnapshot(q, (querySnapshot) => {
+        let arr = [];
+        querySnapshot.forEach((doc) => {
+          arr.push({ post: doc.data(), postID: doc.id });
+        });
+
+        setPosts(arr);
+      });
+    };
+    getPosts();
+  }, [uploadPost]);
+
+  // Implent Like and unLike
+  const fetchLikes = (postId, likes) => {
+    updateDoc(doc(db, "Articles", postId), {
+      likes: likes.some((l) => l.email === user.email)
+        ? likes.filter((l) => l.email !== user.email)
+        : [
+            { name: user.displayName, email: user.email, photo: user.photoURL },
+            ...likes,
+          ],
+    });
+  };
+
+  // Delete Post
+  const deletePost = (postID) => {
+    deleteDoc(doc(db, "Articles", postID));
+  };
+
   return (
     <Container>
       <ShareBox>
-        Share
         <div>
-          <img src="public/images/user.svg" alt="" />
-          <button>Start a post</button>
+          <img
+            src={user?.photoURL ? user.photoURL : "public/images/user.svg"}
+            alt="user"
+          />
+          <button onClick={() => setShowModel(true)}>Start a post</button>
         </div>
+
         <div>
-          <button>
-            <img src="public/images/photo-icon.svg" alt="" />
-            <span>Photos</span>
+          <button onClick={() => setShowModel(true)}>
+            <img src="public/images/photo-icon.svg" alt="pic" />
+            <span>Photo</span>
           </button>
-          <button>
-            <img src="public/images/vedio-icon.svg" alt="" />
+
+          <button onClick={() => setShowModel(true)}>
+            <img src="public/images/vedio-icon.svg" alt="vedio" />
             <span>Video</span>
           </button>
-          <button>
-            <img src="public/images/photo-icon.svg" alt="" />
-            <span>Event</span>
+
+          <button onClick={() => setShowModel(true)}>
+            <img src="public/images/nav-jobs.svg" alt="job" />
+            <span>Job</span>
           </button>
-          <button>
-            <img src="public/images/article-icon.svg" alt="" />
+
+          <button onClick={() => setShowModel(true)}>
+            <img src="public/images/article-icon.svg" alt="article" />
             <span>Write article</span>
           </button>
         </div>
       </ShareBox>
-      <div>
-        <Article>
-          <Actor>
-            <a>
-              <img src="public/images/user.svg" alt="" />
-              <div>
-                <span>Title</span>
-                <span>Info</span>
-                <span>Date</span>
+
+      {load && (
+        <UploadingBox>
+          <img src="public/images/vedio.svg" alt="vedio" />
+          <div className="info">
+            <span>Uploading...</span>
+            <div className="progress">
+              <span>0</span>
+              <div className="bar">
+                <span style={{ width: load + "%" }} width={"50%"}></span>
               </div>
-            </a>
-            <button>
-              <img src="public/images/ellipsis.svg" alt="" />
-            </button>
-          </Actor>
-          <Description>Description</Description>
-          <SharedImg>
-            <a>
-              <img
-                src="https://st2.depositphotos.com/3591429/6011/i/450/depositphotos_60117009-stock-photo-people-and-single-word-share.jpg"
-                alt=""
+              <span>100</span>
+            </div>
+          </div>
+          <img src="public/images/ellipsis.svg" alt="ellipsis" />
+        </UploadingBox>
+      )}
+
+      {posts.length > 0 &&
+        posts.map(({ post, postID }, id) => (
+          <Article key={id}>
+            <Actor>
+              <a href="/feed">
+                <img src={post.user.photo} alt="user" />
+                <div className="info">
+                  <h6 className="name">{post.user.name}</h6>
+                  <span className="title">{post.user.title}</span>
+                  <span className="date">{fuzzyTime(post.date.toDate())}</span>
+                </div>
+              </a>
+              <button
+                onClick={() =>
+                  setShowEditPost((prev) => (prev === postID ? null : postID))
+                }
+              >
+                <img src="public/images/ellipsis.svg" alt="ellipsis" />
+              </button>
+              {showEditPost === postID && (
+                <EditModel>
+                  <li>
+                    <img src="/Images/firebase.png" alt="saved" />
+                    <div className="info">
+                      <h6>Save</h6>
+                      <span>Save for later</span>
+                    </div>
+                  </li>
+                  {post.user.title === user.email && (
+                    <li onClick={() => deletePost(postID)}>
+                      <img src="/Images/delete.svg" alt="" />
+                      <h6>Delete post</h6>
+                    </li>
+                  )}
+                </EditModel>
+              )}
+            </Actor>
+            <Description>{post.description}</Description>
+            <SharedImg>
+              {post.sharedImage && <img src={post.sharedImage} alt="postIMG" />}
+              {post.sharedVedio && (
+                <ReactPlayer
+                  url={post.sharedVedio}
+                  width={"100%"}
+                  controls={true}
+                />
+              )}
+            </SharedImg>
+            <SocialContents>
+              <li>
+                {post.likes.length > 0 && (
+                  <img
+                    src="https://static-exp1.licdn.com/sc/h/8ekq8gho1ruaf8i7f86vd1ftt"
+                    alt="likes"
+                  />
+                )}
+                <span>{post.likes.length}</span>
+              </li>
+              <li onClick={() => setShowComments((prev) => [...prev, id])}>
+                <p>{post.comments ? post.comments.length : 0} comments </p>
+              </li>
+            </SocialContents>
+            <SocialActions>
+              <button
+                className={
+                  post.likes.some((l) => l.email === user.email) ? "active" : ""
+                }
+                onClick={(e) => {
+                  fetchLikes(postID, post.likes);
+                }}
+              >
+                <img className="unLiked" src="/Images/like.svg" alt="like" />
+                <img
+                  className="liked"
+                  src="https://static-exp1.licdn.com/sc/h/5zhd32fqi5pxwzsz78iui643e"
+                  alt="like"
+                />
+
+                <span>Like</span>
+              </button>
+              <button onClick={() => setShowComments((prev) => [...prev, id])}>
+                <img src="/Images/comment.svg" alt="comment" />
+                <span>Comment</span>
+              </button>
+              <button>
+                <img src="/Images/share.svg" alt="share" />
+                <span>Share</span>
+              </button>
+              <button>
+                <img src="/Images/send.svg" alt="send" />
+                <span>Send</span>
+              </button>
+            </SocialActions>
+            {showComments.includes(id) && (
+              <Comment
+                photo={user?.photoURL}
+                comments={post.comments}
+                user={user}
+                postID={postID}
               />
-            </a>
-          </SharedImg>
-        </Article>
-      </div>
+            )}
+          </Article>
+        ))}
+      {showModel && (
+        <PostModel
+          close={hideModel}
+          addPost={setPosts}
+          uploadPost={uploadPost}
+        />
+      )}
     </Container>
   );
 };
+export default Main;
+
 const Container = styled.div`
   grid-area: main;
 `;
-const CommonCard = styled.div`
+
+const CommonCard = styled.article`
   overflow: hidden;
   text-align: center;
   margin-bottom: 8px;
@@ -115,6 +724,7 @@ const ShareBox = styled(CommonCard)`
   color: #958b7b;
   margin: 0 0 8px;
   background-color: white;
+
   div {
     button {
       color: rgba(0, 0, 0, 0.6);
@@ -134,6 +744,7 @@ const ShareBox = styled(CommonCard)`
         background-color: rgba(0, 0, 0, 0.08);
       }
     }
+
     &:first-child {
       display: flex;
       align-items: center;
@@ -151,6 +762,7 @@ const ShareBox = styled(CommonCard)`
         border-radius: 35px;
       }
     }
+
     &:last-child {
       display: flex;
       justify-content: space-around;
@@ -161,78 +773,62 @@ const ShareBox = styled(CommonCard)`
         img {
           margin: 0 10px 0 -2px;
         }
-        span {
-          color: #502323;
-        }
       }
     }
   }
 `;
-/*_________________________________________*/
+
 const Article = styled(CommonCard)`
   padding: 0;
   margin: 0 0 8px;
   overflow: visible;
 `;
-/*_________________________________________*/
+
 const Actor = styled.div`
   padding-right: 40px;
-  flex-wrap: nowrap;
   padding: 12px 16px 0;
   display: flex;
-  /* justify-content: space-between; */
+  justify-content: space-between;
   margin-bottom: 8px;
-  align-items: center;
-  /* position: relative; */
+  align-items: flex-start;
+  position: relative;
   a {
     overflow: hidden;
     display: flex;
-    margin-right: 12px;
-    flex-grow: 1;
-    text-decoration: none;
-
     img {
       width: 48px;
       height: 48px;
       border-radius: 50%;
       margin-right: 10px;
     }
-    & > div {
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-      flex-basis: 0;
-      margin-left: 8px;
-      overflow: hidden;
+    .info {
+      text-align: start;
+      h6 {
+        font-size: 14px;
+        color: rgba(0, 0, 0, 1);
+        font-weight: 600;
+      }
       span {
-        text-align: left;
-        &:first-child {
-          font-size: 14px;
-          font-weight: 700;
-          color: rgba(0, 0, 0, 1);
-        }
-        &:last-child {
-          font-size: 12px;
-          color: rgba(0, 0, 0, 0.6);
-        }
+        font-size: 12px;
+        display: block;
+        color: rgba(0, 0, 0, 0.6);
       }
     }
   }
+
   button {
-    position: absolute;
-    right: 12px;
-    top: 0;
     background-color: transparent;
     border: none;
-    /* cursor: pointer;
+    cursor: pointer;
     padding: 5px;
-    border-radius: 50px; */
-    /* &:hover {
+    border-radius: 50px;
+
+    &:hover {
       background-color: rgba(0, 0, 0, 0.08);
-    } */
+    }
   }
 `;
-/*_________________________________________*/
+
 const EditModel = styled.ul`
   animation: fadeIn 0.5s;
   text-align: start;
@@ -274,15 +870,15 @@ const EditModel = styled.ul`
     }
   }
 `;
-/*_________________________________________*/
+
 const Description = styled.div`
   font-size: 14px;
-  text-align: left;
+  text-align: start;
   padding: 0 16px;
   color: rgba(0, 0, 0, 0.9);
   overflow: hidden;
 `;
-/*_________________________________________*/
+
 const SharedImg = styled.div`
   width: 100%;
   max-height: 500px;
@@ -291,12 +887,11 @@ const SharedImg = styled.div`
   margin-top: 8px;
   overflow: hidden;
   img {
-    object-fit: contain;
-    max-height: 100%;
+    max-height: 500px;
     max-width: 100%;
   }
 `;
-/*_________________________________________*/
+
 const SocialContents = styled.ul`
   display: flex;
   justify-content: space-between;
@@ -323,7 +918,7 @@ const SocialContents = styled.ul`
     }
   }
 `;
-/*_________________________________________*/
+
 const SocialActions = styled.div`
   padding: 0 16px;
   display: flex;
@@ -369,4 +964,3 @@ const SocialActions = styled.div`
     }
   }
 `;
-export default Main;
