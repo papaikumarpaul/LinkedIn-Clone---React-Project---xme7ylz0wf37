@@ -65,7 +65,7 @@ const Header = () => {
 
               <span>
                 Me
-                <img src="public/images/down/icon.svg " alt="" />
+                <img src="public/images/down-icon.svg " alt="" />
               </span>
               {showUser && <Profile />}
               {/* <SignOut>

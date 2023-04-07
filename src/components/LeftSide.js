@@ -1,14 +1,17 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
-const LeftSide = (props) => {
+
+const LeftSide = () => {
+  const user = useSelector((state) => state.user.value);
   return (
     <Container>
       <ArtCard>
         <UserInfo>
           <CardBackground />
           <a>
-            <Photo />
-            <Link>Welcome, there!</Link>
+            <Photo src={user?.photoURL ? user.photoURL : "public/images.svg"} />
+            <Link>Welcome,{user && user.displayName}</Link>
           </a>
           <a>
             <AddPhotoText>Add a photo</AddPhotoText>

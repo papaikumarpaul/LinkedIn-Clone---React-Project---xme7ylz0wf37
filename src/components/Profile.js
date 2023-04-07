@@ -18,7 +18,7 @@ const Profile = () => {
       <div className="about">
         <img
           className="pic"
-          src={user?.photoURL ? user.photoURL : "/public/Images/user.svg"}
+          src={user?.photoURL ? user.photoURL : "public/Images/user.svg"}
           style={{
             fontSize: "27px",
             width: "55px",
@@ -38,7 +38,7 @@ const Profile = () => {
     </Container>
   );
 };
-const Container = styled.article`
+const Container = styled.div`
   position: absolute;
   top: 60px;
   right: 3px;

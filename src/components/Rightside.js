@@ -30,7 +30,10 @@ const Rightside = (props) => {
           </li>
         </FeedList>
 
-        <Recommendation>View all recommendations</Recommendation>
+        <Recommendation>
+          View all recommendations
+          <img src="public/images/right-icon.svg" alt="" />
+        </Recommendation>
       </FollowCard>
       <BannerCard>
         <img
