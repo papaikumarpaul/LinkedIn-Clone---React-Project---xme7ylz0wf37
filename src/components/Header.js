@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
-import Profile from "./Profile";
+// import Profile from "./Profile";
 
 const Header = () => {
   const user = useSelector((state) => state.user.value);
@@ -190,7 +190,6 @@ const NavItem = styled.li`
     position: relative;
     min-height: 52px;
     min-width: 80px;
-
     span {
       align-items: center;
       display: flex;

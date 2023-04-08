@@ -47,7 +47,6 @@ const Nav = styled.nav`
   position: relative;
   justify-content: space-between;
   flex-wrap: nowrap;
-
   & > a {
     width: 100px;
     height: 30px;
