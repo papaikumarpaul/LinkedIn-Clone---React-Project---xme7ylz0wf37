@@ -10,7 +10,9 @@ const LeftSide = () => {
         <UserInfo>
           <CardBackground />
           <a>
-            <Photo src={user?.photoURL ? user.photoURL : "public/images.svg"} />
+            <Photo
+              src={user?.photoURL ? user.photoURL : "./public/images.svg"}
+            />
             <Link>Welcome,{user && user.displayName}</Link>
           </a>
           <a>

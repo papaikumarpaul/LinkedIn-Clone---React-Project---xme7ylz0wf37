@@ -10,9 +10,9 @@ const Login = () => {
 
   return (
     <Container>
-      {user && <Navigate to={"feed"} />}
+      {user && <Navigate to="/" />}
       <Nav>
-        <a href="/">
+        <a href="/Feed">
           <img src="public/images/login-logo.svg" alt="logo" />
         </a>
         <div>

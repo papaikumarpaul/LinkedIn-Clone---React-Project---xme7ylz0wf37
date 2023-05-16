@@ -4,7 +4,7 @@ import LeftSide from "./LeftSide";
 import Main from "./Main";
 import Rightside from "./rightside";
 const Home = (props) => {
-  document.title = "Feed | Linkedin";
+  // document.title = "Feed | Linkedin";
   return (
     <Container>
       <Layout>

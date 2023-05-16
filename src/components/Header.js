@@ -2,17 +2,17 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
-// import Profile from "./Profile";
+import Profile from "./Profile";
 
 const Header = () => {
   const user = useSelector((state) => state.user.value);
   const [showUser, setShowUser] = useState("");
   return (
     <Container>
-      {!user && <Navigate to="/" />}
+      {!user && <Navigate to="/Feed" />}
       <Content>
         <Logo>
-          <a href="/feed">
+          <a href="/">
             <img src="public/images/home-logo.svg" alt="" />
           </a>
         </Logo>
@@ -68,9 +68,9 @@ const Header = () => {
                 <img src="public/images/down-icon.svg " alt="" />
               </span>
               {showUser && <Profile />}
-              {/* <SignOut>
+              <SignOut>
                 <a>sign out</a>
-              </SignOut> */}
+              </SignOut>
             </User>
             <Work>
               <a>
