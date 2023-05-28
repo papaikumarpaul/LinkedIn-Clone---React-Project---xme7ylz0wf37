@@ -2,8 +2,10 @@ import React from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 
-const LeftSide = () => {
+const LeftSide = (props) => {
+  
   const user = useSelector((state) => state.user.value);
+  console.log(props.user)
   return (
     <Container>
       <ArtCard>
@@ -11,7 +13,7 @@ const LeftSide = () => {
           <CardBackground />
           <a>
             <Photo
-              src={user?.photoURL ? user.photoURL : "./public/images.svg"}
+              src={user&&user.photoURL ? user.photoURL : "./public/images.svg"}
             />
             <Link>Welcome,{user && user.displayName}</Link>
           </a>

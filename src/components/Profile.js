@@ -1,3 +1,5 @@
+import React from 'react'
+
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { signOut } from "../App/userSlice";
@@ -18,7 +20,7 @@ const Profile = () => {
       <div className="about">
         <img
           className="pic"
-          src={user?.photoURL ? user.photoURL : "public/images/user.svg"}
+          src={user && user.photoURL ? user.photoURL : "public/images/user.svg"}
           style={{
             fontSize: "27px",
             width: "55px",

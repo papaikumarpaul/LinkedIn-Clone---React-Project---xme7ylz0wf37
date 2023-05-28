@@ -125,6 +125,7 @@ const Main = () => {
       <ShareBox>
         <div>
           <img src="public/images/user.svg" alt="" />
+          
           <button onClick={() => setShowModel(true)}>Start a post</button>
         </div>
 

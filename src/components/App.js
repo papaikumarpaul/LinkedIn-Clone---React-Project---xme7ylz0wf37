@@ -13,19 +13,19 @@ import Header from "./Header";
 
 const App = () => {
   const dispatch = useDispatch();
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        dispatch(signIn(user));
-      }
-    });
-  });
+  // useEffect(() => {
+  //   onAuthStateChanged(auth, (user) => {
+  //     if (user) {
+  //       dispatch(signIn("/"));
+  //     }
+  //   });
+  // });
   return (
     <div id="main">
       <Routes>
         <Route path="/" element={<Login />} />
         <Route
-          path="/feed"
+          path="/user"
           element={
             <>
               <Header />

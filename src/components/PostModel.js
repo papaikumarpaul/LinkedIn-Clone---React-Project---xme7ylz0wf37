@@ -8,6 +8,7 @@ import { collection, addDoc, Timestamp } from "firebase/firestore";
 
 const PostModel = (props) => {
   const user = useSelector((state) => state.user.value);
+ 
   const [text, setText] = useState("");
   const sharedImage = useRef();
   const [image, setImage] = useState();
@@ -45,10 +46,11 @@ const PostModel = (props) => {
           likes: [],
         });
       }
-      reset();
+      reset(e);
       props.close();
     }
   };
+  // console.log(user.displayName);
 
   return (
     <Container>
@@ -68,7 +70,9 @@ const PostModel = (props) => {
         <SharedContent>
           <UserInfo>
             <img
-              src={user.photoURL ? user.photoURL : "public/images/user.svg"}
+              src={
+                user.photoURL ? user.photoURL : "public/images/user.svg"
+              }
               alt="user"
             />
             <span>{user.displayName}</span>
@@ -77,7 +81,11 @@ const PostModel = (props) => {
           <Description>
             <textarea
               value={text}
-              onChange={(e) => setText(e.currentTarget.value)}
+              onChange={(e) => {
+                let newText=e.currentTarget.value;
+                setText(newText);
+                console.log(newText);
+              }}
               autoFocus={true}
               placeholder="What do you want to talk about?"
             ></textarea>

@@ -4,12 +4,17 @@ import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import Profile from "./Profile";
 
-const Header = () => {
+const Header = (props) => {
   const user = useSelector((state) => state.user.value);
   const [showUser, setShowUser] = useState("");
   return (
     <Container>
-      {!user && <Navigate to="/Feed" />}
+      {!user && (
+        <Navigate
+          to="/
+      "
+        />
+      )}
       <Content>
         <Logo>
           <a href="/">
@@ -56,17 +61,16 @@ const Header = () => {
                 <span>Notifications</span>
               </a>
             </NavItem>
+
+            {console.log("line 59- " + user?.payload)}
             <User onClick={() => setShowUser(!showUser)}>
               {user && user.photURL ? (
                 <img src={user.photURL} alt="user" />
               ) : (
                 <img src="public/images/user.svg" alt="" />
               )}
-
-              <span>
-                Me
-                <img src="public/images/down-icon.svg " alt="" />
-              </span>
+              <a></a>
+              <span>{user.displayName}</span>
               {showUser && <Profile />}
               <SignOut>
                 <a>sign out</a>

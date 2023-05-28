@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
@@ -8,11 +8,12 @@ const Login = () => {
   const user = useSelector((state) => state.user.value);
   const dispatch = useDispatch();
 
+  
   return (
     <Container>
-      {user && <Navigate to="/" />}
+      {user?.uid && <Navigate to="/user" />}
       <Nav>
-        <a href="/Feed">
+        <a href="/user">
           <img src="public/images/login-logo.svg" alt="logo" />
         </a>
         <div>
@@ -26,7 +27,12 @@ const Login = () => {
           <img src="public/images/login-hero.svg" alt="" />
         </Hero>
         <Form>
-          <Google onClick={() => dispatch(googleSignIn())}>
+          <Google
+            onClick={async () => {
+              const user = await dispatch(googleSignIn());
+              console.log({ user });
+            }}
+          >
             <img src="public/images/google.svg" alt="" />
             Sign in with Google
           </Google>
