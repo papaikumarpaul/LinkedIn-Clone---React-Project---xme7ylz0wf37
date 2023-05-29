@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-const RightSide = () => {
+  export  const RightSide = () => {
   return (
     <Container>
       <FollowCard>
@@ -122,4 +122,4 @@ const BannerCard = styled(FollowCard)`
     height: 100%;
   }
 `;
-export default RightSide;
+// export default RightSide;
