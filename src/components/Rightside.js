@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-const Rightside = () => {
+const RightSide = () => {
   return (
     <Container>
       <FollowCard>
@@ -25,18 +25,20 @@ const Rightside = () => {
             </a>
             <div>
               <span>#Video</span>
-              <button>Follow</button>
+              <button>
+                <img src="public/images/plus-icon.svg" alt="plus"/>
+                Follow</button>
             </div>
           </li>
         </FeedList>
 
         <Recommendation>
           View all recommendations
-          <img src="public/images/right-icon.svg" alt="" />
+          <img src="public/images/right-icon.svg" alt="right" />
         </Recommendation>
       </FollowCard>
       <BannerCard>
-        <img src="public/images/ads.png" alt="" />
+        <img src="public/images/ads.png" alt="ads" />
       </BannerCard>
     </Container>
   );
@@ -120,4 +122,4 @@ const BannerCard = styled(FollowCard)`
     height: 100%;
   }
 `;
-export default Rightside;
+export default RightSide;

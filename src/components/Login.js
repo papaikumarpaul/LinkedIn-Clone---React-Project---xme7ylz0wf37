@@ -34,7 +34,7 @@ const Login = () => {
             }}
             className="google"
           >
-            <img src="public/images/google.svg" alt="" />
+            <img src="public/images/google.svg" alt="google" />
             Sign in with Google
           </Google>
         </Form>
@@ -167,7 +167,11 @@ const Google = styled.button`
   &:hover {
     background-color: rgba(207, 207, 207, 0.25);
     color: rgba(0, 0, 0, 0.75);
+    box-shadow: inset 0 0 0 2px rgb(0 0 0 / 60%),
+        inset 0 0 0 2px rgb(0 0 0 / 0%), inset 0 0 0 1px rgb(0 0 0 / 0);
+
   }
+  
 `;
 
 export default Login;

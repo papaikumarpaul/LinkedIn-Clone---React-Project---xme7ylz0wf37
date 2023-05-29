@@ -1,5 +1,4 @@
 import React from "react";
-
 import { useCallback, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
@@ -19,7 +18,7 @@ import { db, storage } from "../firebase";
 import ReactPlayer from "react-player";
 import fuzzyTime from "fuzzy-time";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import Comment from "./Comment";
+
 
 const Main = () => {
   const user = useSelector((state) => state.user.value);
@@ -124,7 +123,10 @@ const Main = () => {
     <Container>
       <ShareBox>
         <div>
-          <img src="public/images/user.svg" alt="" />
+        <img
+              src={user &&user.photoURL ? user.photoURL : "public/images/user.svg"}
+              alt="user"
+            />
           
           <button onClick={() => setShowModel(true)}>Start a post</button>
         </div>
@@ -173,7 +175,7 @@ const Main = () => {
         posts.map(({ post, postID }, id) => (
           <Article key={id}>
             <Actor>
-              <a href="/feed">
+              <a href="/user">
                 <img src={post.user.photo} alt="user" />
                 <div className="info">
                   <h6 className="name">{post.user.name}</h6>
@@ -219,7 +221,7 @@ const Main = () => {
             </SharedImg>
             <SocialContents>
               <li>
-                {post.likes.length > 5 && (
+                {post.likes.length >0 && (
                   <img
                     src="https://static-exp1.licdn.com/sc/h/8ekq8gho1ruaf8i7f86vd1ftt"
                     alt="likes"
@@ -227,9 +229,9 @@ const Main = () => {
                 )}
                 <span>{post.likes.length}</span>
               </li>
-              <li onClick={() => setShowComments((prev) => [...prev, id])}>
+              {/* <li onClick={() => setShowComments((prev) => [...prev, id])}>
                 <p>{post.comments ? post.comments.length : 0} comments </p>
-              </li>
+              </li> */}
             </SocialContents>
             <SocialActions>
               <button
@@ -253,10 +255,11 @@ const Main = () => {
 
                 <span>Like</span>
               </button>
-              <button onClick={() => setShowComments((prev) => [...prev, id])}>
+              <button >
                 <img src="public/images/comment.svg" alt="comment" />
                 <span>Comment</span>
               </button>
+              {/* onClick={() => setShowComments((prev) => [...prev, id])} */}
               <button>
                 <img src="public/images/share.svg" alt="share" />
                 <span>Share</span>

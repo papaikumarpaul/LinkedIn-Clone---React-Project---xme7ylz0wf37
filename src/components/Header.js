@@ -9,16 +9,11 @@ const Header = (props) => {
   const [showUser, setShowUser] = useState("");
   return (
     <Container>
-      {!user && (
-        <Navigate
-          to="/
-      "
-        />
-      )}
+      {!user && (<Navigate to="/"/>)}
       <Content>
         <Logo>
-          <a href="/">
-            <img src="public/images/home-logo.svg" alt="" />
+          <a href="/user">
+            <img src="public/images/home-logo.svg" alt="logo" />
           </a>
         </Logo>
         <Search>
@@ -26,7 +21,7 @@ const Header = (props) => {
             <input type="text" placeholder="Search" />
           </div>
           <SearchIcon>
-            <img src="public/images/search-icon.svg" alt="" />
+            <img src="public/images/search-icon.svg" alt="search" />
           </SearchIcon>
         </Search>
         <Nav>
@@ -62,28 +57,25 @@ const Header = (props) => {
               </a>
             </NavItem>
 
-            {console.log("line 59- " + user?.payload)}
+            {/* {console.log("line 59- " + user?.payload)} */}
             <User onClick={() => setShowUser(!showUser)}>
               {user && user.photURL ? (
                 <img src={user.photURL} alt="user" />
               ) : (
-                <img src="public/images/user.svg" alt="" />
+                <img src="public/images/user.svg" alt="user" />
               )}
-              <a></a>
-              <span>{user.displayName}</span>
+              <span>
+               Me
+                <img src="public/images/down-icon.svg" />
+              </span>
               {showUser && <Profile />}
-              <SignOut>
-                <a>sign out</a>
-              </SignOut>
             </User>
             <Work>
-              <a>
-                <img src="public/images/nav-work.svg" alt="" />
-                <span>
-                  Work
-                  <img src="public/images/down-icon.svg" alt="" />
-                </span>
-              </a>
+              <img src="public/images/nav-work.svg" alt="" />
+              <span>
+                Work
+                <img src="public/images/down-icon.svg" alt="" />
+              </span>
             </Work>
           </NavList>
         </Nav>
@@ -213,11 +205,11 @@ const NavItem = styled.li`
   }
 `;
 const User = styled(NavList)`
-  a > svg {
+  svg {
     width: 24px;
     border-radius: 50%;
   }
-  a > img {
+  img:first-of-type {
     width: 24px;
     height: 24px;
     border-radius: 50%;
@@ -226,28 +218,26 @@ const User = styled(NavList)`
     display: flex;
     align-items: center;
   }
-  &:hover {
-    ${SignOut} {
-      align-items: center;
-      display: flex;
-      justify-content: center;
-      font-size: 16px;
-    }
+  img:last-child {
+    width: fit-content;
+    height: fit-content;
+  }
+  @media (max-width: 767px) {
+    position: fixed;
+    top: 5px;
+    right: 0px;
   }
 `;
-const SignOut = styled.div`
-  position: absolute;
-  top: 45px;
-  background: white;
-  border-radius: 0 0 5px 5px;
-  width: 100px;
-  height: 40px;
-  font-size: 16px;
-  transition-duration: 167ms;
-  text-align: center;
-  display: flex;
-`;
+
+
 const Work = styled(User)`
   border-left: 1px solid rgba(0, 0, 0, 0.08);
+  img:last-child {
+    width: fit-content;
+    height: fit-content;
+  }
+  @media (max-width: 767px) {
+    display: none;
+  }
 `;
 export default Header;

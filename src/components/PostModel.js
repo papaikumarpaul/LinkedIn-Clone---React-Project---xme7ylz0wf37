@@ -112,7 +112,6 @@ const PostModel = (props) => {
               <ReactPlayer width="100%" url={text} controls={true} />
             )}
           </Uploads>
-
           <Actions>
             <div className="editor">
               <div className="addButtons">

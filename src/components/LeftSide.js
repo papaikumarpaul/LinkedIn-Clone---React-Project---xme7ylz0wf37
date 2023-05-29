@@ -12,10 +12,10 @@ const LeftSide = (props) => {
         <UserInfo>
           <CardBackground />
           <a>
-            <Photo
-              src={user&&user.photoURL ? user.photoURL : "./public/images.svg"}
-            />
-            <Link>Welcome,{user && user.displayName}</Link>
+          <Photo src={user?.photoURL ? user.photoURL : "public/images/photo.svg" } alt="profile" />
+           
+            
+            <Link>{user && user.displayName}</Link>
           </a>
           <a>
             <AddPhotoText>Add a photo</AddPhotoText>
@@ -90,9 +90,9 @@ const CardBackground = styled.div`
   margin: -12px -12px 0;
 `;
 
-const Photo = styled.div`
+const Photo = styled.img `
   box-shadow: none;
-  background-image: url("public/images/photo.svg");
+  /* background-image: url("public/images/photo.svg"); */
   width: 72px;
   height: 72px;
   box-sizing: border-box;

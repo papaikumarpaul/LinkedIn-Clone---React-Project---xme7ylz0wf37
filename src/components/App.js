@@ -9,18 +9,19 @@ import { useDispatch } from "react-redux";
 import { auth } from "../firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { signIn } from "../App/userSlice";
-
-
+import {signOut} from '../App/userSlice';
 
 const App = () => {
   const dispatch = useDispatch();
-  // useEffect(() => {
-  //   onAuthStateChanged(auth, (user) => {
-  //     if (user) {
-  //       dispatch(signIn(user));
-  //     }
-  //   });
-  // });
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        dispatch(signIn(user));
+      }else{
+        dispatch(signOut("/"))
+      }
+    });
+  });
   return (
     <div id="main">
       <Routes>
