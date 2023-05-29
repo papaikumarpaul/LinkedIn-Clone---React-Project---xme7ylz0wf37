@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-// import InputEmoji from "react-input-emoji";
 import styled from "styled-components";
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase";

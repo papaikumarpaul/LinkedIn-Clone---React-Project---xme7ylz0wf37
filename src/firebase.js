@@ -6,13 +6,13 @@ import { getStorage } from "firebase/storage";
 /*________________________________________________________________________________*/
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBHfY32oPYd6NJs0sFahZJgInfUgMLe4bk",
-  authDomain: "linkedin-clone-project-a1bca.firebaseapp.com",
-  projectId: "linkedin-clone-project-a1bca",
-  storageBucket: "linkedin-clone-project-a1bca.appspot.com",
-  messagingSenderId: "101366265725",
-  appId: "1:101366265725:web:1b251d79184de9d8507e14",
-  measurementId: "G-5X4VL8ECXR",
+  apiKey: "AIzaSyDb0vZ3-ORJdNONpw4gMYg_Nno0RAAgtbQ",
+  authDomain: "papai-aff65.firebaseapp.com",
+  projectId: "papai-aff65",
+  storageBucket: "papai-aff65.appspot.com",
+  messagingSenderId: "703659311516",
+  appId: "1:703659311516:web:8a088d264a9ef6648f4859",
+  measurementId: "G-70BZ7QK6DD"
 };
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

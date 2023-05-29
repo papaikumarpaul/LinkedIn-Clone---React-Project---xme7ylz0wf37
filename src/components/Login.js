@@ -13,11 +13,11 @@ const Login = () => {
     <Container>
       {user?.uid && <Navigate to="/user" />}
       <Nav>
-        <a href="/user">
+        <a href="/">
           <img src="public/images/login-logo.svg" alt="logo" />
         </a>
         <div>
-          <Join>Join now</Join>
+          <Join >Join now</Join>
           <SingIn>Sing in</SingIn>
         </div>
       </Nav>
@@ -30,8 +30,9 @@ const Login = () => {
           <Google
             onClick={async () => {
               const user = await dispatch(googleSignIn());
-              console.log({ user });
+              // console.log({ user }) 
             }}
+            className="google"
           >
             <img src="public/images/google.svg" alt="" />
             Sign in with Google
