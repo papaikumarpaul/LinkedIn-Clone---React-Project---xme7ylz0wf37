@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import LeftSide from "./LeftSide";
 import Main from "./Main";
-import Rightside from "./rightside";
+import Rightside from "../components/rightside";
 
 const Home = (props) => {
   

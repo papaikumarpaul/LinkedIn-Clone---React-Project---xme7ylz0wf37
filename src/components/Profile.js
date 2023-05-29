@@ -12,7 +12,7 @@ const Profile = () => {
 
   const signOutHandler = async () => {
     await auth.signOut();
-    dispatch(signOut());
+    dispatch(signOut())
     navigate("/");
   };
   return (

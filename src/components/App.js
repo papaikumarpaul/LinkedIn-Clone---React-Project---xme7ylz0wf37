@@ -14,13 +14,13 @@ import { signIn } from "../App/userSlice";
 
 const App = () => {
   const dispatch = useDispatch();
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        dispatch(signIn(user));
-      }
-    });
-  });
+  // useEffect(() => {
+  //   onAuthStateChanged(auth, (user) => {
+  //     if (user) {
+  //       dispatch(signIn(user));
+  //     }
+  //   });
+  // });
   return (
     <div id="main">
       <Routes>
