@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { googleSignIn } from "../App/userSlice";
+import GoogleImg from '../images/google.svg';
 
 const Login = () => {
   const user = useSelector((state) => state.user.value);
@@ -30,11 +31,11 @@ const Login = () => {
           <Google
             onClick={async () => {
               const user = await dispatch(googleSignIn());
-              // console.log({ user }) 
+              console.log({ user }) 
             }}
             className="google"
           >
-            <img src="public/images/google.svg" alt="google" />
+            <img src={GoogleImg}alt="google" />
             Sign in with Google
           </Google>
         </Form>

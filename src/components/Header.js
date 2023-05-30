@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import Profile from "./Profile";
-
+import  HomeLogo from '../images/home-logo.svg';
 const Header = (props) => {
   const user = useSelector((state) => state.user.value);
   const [showUser, setShowUser] = useState("");
@@ -13,7 +13,8 @@ const Header = (props) => {
       <Content>
         <Logo>
           <a href="/user">
-            <img src="public/images/home-logo.svg" alt="logo" />
+            <img src={HomeLogo} alt="logo" />
+            
           </a>
         </Logo>
         <Search>
