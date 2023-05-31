@@ -1,12 +1,16 @@
 import React from "react";
 import styled from "styled-components";
+import feedIcon from '../images/feed-icon.svg';
+import plusIcon from '../images/plus-icon.svg';
+import RightIcon from '../images/right-icon.svg';
+import adsPng from '../images/ads.png';
   export  const RightSide = () => {
   return (
     <Container>
       <FollowCard>
         <Title>
           <h2>Add to your feed</h2>
-          <img src="public/images/feed-icon.svg" alt="" />
+          <img src={feedIcon} alt="" />
         </Title>
 
         <FeedList>
@@ -26,7 +30,7 @@ import styled from "styled-components";
             <div>
               <span>#Video</span>
               <button>
-                <img src="public/images/plus-icon.svg" alt="plus"/>
+                <img src={plusIcon}alt="plus"/>
                 Follow</button>
             </div>
           </li>
@@ -34,11 +38,11 @@ import styled from "styled-components";
 
         <Recommendation>
           View all recommendations
-          <img src="public/images/right-icon.svg" alt="right" />
+          <img src={RightIcon} alt="right" />
         </Recommendation>
       </FollowCard>
       <BannerCard>
-        <img src="public/images/ads.png" alt="ads" />
+        <img src={adsPng} alt="ads" />
       </BannerCard>
     </Container>
   );

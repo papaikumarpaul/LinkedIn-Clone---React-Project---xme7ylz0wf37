@@ -5,7 +5,13 @@ import styled from "styled-components";
 import ReactPlayer from "react-player";
 import { db } from "../firebase";
 import { collection, addDoc, Timestamp } from "firebase/firestore";
-
+import closeImg from '../images/close.svg';
+import usersImg from '../images/user.svg';
+import closepost from '../images/close-post.svg';
+import photoicon  from '../images/photo-icon.svg';
+import vedioIcon from '../images/vedio-icon.svg';
+import document from '../images/document.svg';
+import commentImg from '../images/comment.svg';
 const PostModel = (props) => {
   const user = useSelector((state) => state.user.value);
 
@@ -63,14 +69,14 @@ const PostModel = (props) => {
               props.close();
             }}
           >
-            <img src="public/images/close.svg" alt="close" />
+            <img src={closeImg} alt="close" />
           </button>
         </Header>
 
         <SharedContent>
           <UserInfo>
             <img
-              src={user.photoURL ? user.photoURL : "public/images/user.svg"}
+              src={user.photoURL ? user.photoURL : {usersImg}}
               alt="user"
             />
             <span>{user.displayName}</span>
@@ -96,7 +102,7 @@ const PostModel = (props) => {
                   setImage(null);
                   setVedio(null);
                 }}
-                src="public/images/close-post.svg"
+                src={closepost}
                 alt="close"
               />
             )}
@@ -119,7 +125,7 @@ const PostModel = (props) => {
                   disabled={image || vedio || textURL}
                   onClick={() => sharedImage.current.click()}
                 >
-                  <img src="public/images/photo-icon.svg" alt="Add a pic" />
+                  <img src={photoicon} alt="Add a pic" />
                   <input
                     ref={sharedImage}
                     onChange={(e) => setImage(e.target.files[0])}
@@ -133,7 +139,7 @@ const PostModel = (props) => {
                   disabled={image || vedio || textURL}
                   onClick={() => sharedVedio.current.click()}
                 >
-                  <img src="public/images/vedio-icon.svg" alt="Add a vedio" />
+                  <img src={vedioIcon} alt="Add a vedio" />
                   <input
                     ref={sharedVedio}
                     onChange={(e) => setVedio(e.target.files[0])}
@@ -144,13 +150,13 @@ const PostModel = (props) => {
                 </button>
 
                 <button disabled={image || vedio || textURL}>
-                  <img src="public/images/document.svg" alt="Add a document" />
+                  <img src={document} alt="Add a document" />
                 </button>
               </div>
 
               <div className="shareComment">
                 <button>
-                  <img src="public/images/comment.svg" alt="allow comments" />
+                  <img src={commentImg} alt="allow comments" />
                   Anyone
                 </button>
               </div>
@@ -226,7 +232,7 @@ const SharedContent = styled.div`
   background-color: transparent;
   padding: 8px 20px;
 `;
-/*_________________________________________*/
+
 const UserInfo = styled.div`
   display: flex;
   align-items: center;
@@ -242,7 +248,7 @@ const UserInfo = styled.div`
     margin-left: 5px;
   }
 `;
-/*_________________________________________*/
+
 const Description = styled.div`
   padding: 12px 0;
   textarea {

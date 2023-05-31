@@ -4,18 +4,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { googleSignIn } from "../App/userSlice";
 import GoogleImg from '../images/google.svg';
+import loginLogo from '../images/login-logo.svg'
+import loginHero from '../images/login-hero.svg'
 
 const Login = () => {
   const user = useSelector((state) => state.user.value);
   const dispatch = useDispatch();
-
-  
   return (
     <Container>
       {user?.uid && <Navigate to="/user" />}
       <Nav>
         <a href="/">
-          <img src="public/images/login-logo.svg" alt="logo" />
+          <img src={loginLogo} alt="logo" />
         </a>
         <div>
           <Join >Join now</Join>
@@ -25,7 +25,7 @@ const Login = () => {
       <Section>
         <Hero>
           <h1>Welcome to your professional community</h1>
-          <img src="public/images/login-hero.svg" alt="" />
+          <img src={loginHero} alt="loginHero" />
         </Hero>
         <Form>
           <Google

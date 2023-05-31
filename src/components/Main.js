@@ -18,8 +18,19 @@ import { db, storage } from "../firebase";
 import ReactPlayer from "react-player";
 import fuzzyTime from "fuzzy-time";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-
-
+import users from '../images/user.svg';
+import photo from '../images/photo-icon.svg'
+import vedio from '../images/vedio-icon.svg';
+import navJobs from '../images/nav-jobs.svg';
+import articleicon from '../images/article-icon.svg';
+import ellipsis from '../images/ellipsis.svg';
+import vediosvgv  from '../images/vedio.svg'
+import firebase from '../images/firebase.png';
+import deleteImg from '../images/delete.svg';
+import likeImg from '../images/like.svg';
+import commentImg from '../images/comment.svg';
+import shareSvg from '../images/share.svg';
+import sendsvg from '../images/send.svg';
 const Main = () => {
   const user = useSelector((state) => state.user.value);
   const [posts, setPosts] = useState([]);
@@ -38,7 +49,7 @@ const Main = () => {
       const storageRef = ref(
         storage,
         post.image
-          ? `public/images/${post.image.name}`
+          ? `../images/${post.image.name}`
           : `vedios/${post.vedio.name}`
       );
       const upload = uploadBytesResumable(
@@ -124,7 +135,7 @@ const Main = () => {
       <ShareBox>
         <div>
         <img
-              src={user &&user.photoURL ? user.photoURL : "public/images/user.svg"}
+              src={user &&user.photoURL ? user.photoURL : {users}}
               alt="user"
             />
           
@@ -133,22 +144,22 @@ const Main = () => {
 
         <div>
           <button onClick={() => setShowModel(true)}>
-            <img src="public/images/photo-icon.svg" alt="pic" />
+            <img src={photo} alt="pic" />
             <span>Photo</span>
           </button>
 
           <button onClick={() => setShowModel(true)}>
-            <img src="public/images/vedio-icon.svg" alt="vedio" />
+            <img src={vedio} alt="vedio" />
             <span>Video</span>
           </button>
 
           <button onClick={() => setShowModel(true)}>
-            <img src="public/images/nav-jobs.svg" alt="job" />
+            <img src={navJobs} alt="job" />
             <span>Job</span>
           </button>
 
           <button onClick={() => setShowModel(true)}>
-            <img src="public/images/article-icon.svg" alt="article" />
+            <img src={articleicon} alt="article" />
             <span>Write article</span>
           </button>
         </div>
@@ -156,7 +167,7 @@ const Main = () => {
 
       {load && (
         <UploadingBox>
-          <img src="public/images/vedio.svg" alt="vedio" />
+          <img src={vediosvgv} alt="vedio" />
           <div className="info">
             <span>Uploading...</span>
             <div className="progress">
@@ -167,7 +178,7 @@ const Main = () => {
               <span>100</span>
             </div>
           </div>
-          <img src="public/images/ellipsis.svg" alt="ellipsis" />
+          <img src={ellipsis} alt="ellipsis" />
         </UploadingBox>
       )}
 
@@ -188,12 +199,12 @@ const Main = () => {
                   setShowEditPost((prev) => (prev === postID ? null : postID))
                 }
               >
-                <img src="public/images/ellipsis.svg" alt="ellipsis" />
+                <img src={ellipsis} alt="ellipsis" />
               </button>
               {showEditPost === postID && (
                 <EditModel>
                   <li>
-                    <img src="public/images/firebase.png" alt="saved" />
+                    <img src={firebase} alt="saved" />
                     <div className="info">
                       <h6>Save</h6>
                       <span>Save for later</span>
@@ -201,7 +212,7 @@ const Main = () => {
                   </li>
                   {post.user.title === user.email && (
                     <li onClick={() => deletePost(postID)}>
-                      <img src="public/images/delete.svg" alt="" />
+                      <img src={deleteImg} alt="delete" />
                       <h6>Delete post</h6>
                     </li>
                   )}
@@ -244,7 +255,7 @@ const Main = () => {
               >
                 <img
                   className="unLiked"
-                  src="public/images/like.svg"
+                  src={likeImg}
                   alt="like"
                 />
                 <img
@@ -256,16 +267,16 @@ const Main = () => {
                 <span>Like</span>
               </button>
               <button >
-                <img src="public/images/comment.svg" alt="comment" />
+                <img src={commentImg} alt="comment" />
                 <span>Comment</span>
               </button>
               {/* onClick={() => setShowComments((prev) => [...prev, id])} */}
               <button>
-                <img src="public/images/share.svg" alt="share" />
+                <img src={shareSvg} alt="share" />
                 <span>Share</span>
               </button>
               <button>
-                <img src="public/images/send.svg" alt="send" />
+                <img src={sendsvg}alt="send" />
                 <span>Send</span>
               </button>
             </SocialActions>

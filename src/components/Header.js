@@ -4,6 +4,16 @@ import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import Profile from "./Profile";
 import  HomeLogo from '../images/home-logo.svg';
+import Searchicon from '../images/search-icon.svg'
+import homeimg from '../images/nav-home.svg';
+import  Network from '../images/nav-network.svg';
+import Jobs from '../images/nav-jobs.svg';
+import Messaging from '../images/nav-messaging.svg'
+import Notifications from '../images/nav-notifications.svg';
+import users from '../images/user.svg';
+import down from '../images/down-icon.svg';
+import nav from '../images/nav-work.svg';
+
 const Header = (props) => {
   const user = useSelector((state) => state.user.value);
   const [showUser, setShowUser] = useState("");
@@ -14,7 +24,6 @@ const Header = (props) => {
         <Logo>
           <a href="/user">
             <img src={HomeLogo} alt="logo" />
-            
           </a>
         </Logo>
         <Search>
@@ -22,38 +31,38 @@ const Header = (props) => {
             <input type="text" placeholder="Search" />
           </div>
           <SearchIcon>
-            <img src="public/images/search-icon.svg" alt="search" />
+            <img src={Searchicon} alt="search" />
           </SearchIcon>
         </Search>
         <Nav>
           <NavList>
             <NavItem className="active">
               <a>
-                <img src="public/images/nav-home.svg" alt="" />
+                <img src={homeimg} alt="home" />
                 <span>Home</span>
               </a>
             </NavItem>
             <NavItem>
               <a>
-                <img src="public/images/nav-network.svg" alt="" />
+                <img src={Network} alt="My Network" />
                 <span> My Network</span>
               </a>
             </NavItem>
             <NavItem>
               <a>
-                <img src="public/images/nav-jobs.svg" alt="" />
+                <img src={Jobs} alt="Jobs" />
                 <span> Jobs</span>
               </a>
             </NavItem>
             <NavItem>
               <a>
-                <img src="public/images/nav-messaging.svg" alt="" />
+                <img src={Messaging} alt="Messaging" />
                 <span>Messaging</span>
               </a>
             </NavItem>
             <NavItem>
               <a>
-                <img src="public/images/nav-notifications.svg" alt="" />
+                <img src={Notifications} alt="Notifications" />
                 <span>Notifications</span>
               </a>
             </NavItem>
@@ -63,19 +72,19 @@ const Header = (props) => {
               {user && user.photURL ? (
                 <img src={user.photURL} alt="user" />
               ) : (
-                <img src="public/images/user.svg" alt="user" />
+                <img src={users} alt="user" />
               )}
               <span>
                Me
-                <img src="public/images/down-icon.svg" />
+                <img src={down}/>
               </span>
               {showUser && <Profile />}
             </User>
             <Work>
-              <img src="public/images/nav-work.svg" alt="" />
+              <img src={nav} alt="work" />
               <span>
                 Work
-                <img src="public/images/down-icon.svg" alt="" />
+                <img src={down} alt="" />
               </span>
             </Work>
           </NavList>

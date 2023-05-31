@@ -1,14 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import LeftSide from "./LeftSide";
+import LeftSide from "../components/LeftSide";
 import Main from "./Main";
 import { RightSide } from "./Rightside";
 
 
-const Home = (props) => {
+const Home = () => {
   return (
     <Container>
-      
       <Layout>
         <LeftSide />
         <Main />

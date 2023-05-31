@@ -1,18 +1,22 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
-
+import photo from '../images/photo.svg';
+import widget from '../images/widget-icon.svg';
+import item from '../images/item-icon.svg';
+import plus from '../images/plus-icon.svg'
+import cardImg from '../images/card-bg.svg';
 const LeftSide = (props) => {
   
   const user = useSelector((state) => state.user.value);
-  console.log(props.user)
+  // console.log(user.user)
   return (
     <Container>
       <ArtCard>
         <UserInfo>
           <CardBackground />
           <a>
-          <Photo src={user?.photoURL ? user.photoURL : "public/images/photo.svg" } alt="profile" />
+          <Photo src={user?.photoURL ? user.photoURL : {photo} } alt="profile" />
            
             
             <Link>{user && user.displayName}</Link>
@@ -27,12 +31,12 @@ const LeftSide = (props) => {
               <span>Connections</span>
               <span>Grow your network</span>
             </div>
-            <img src="public/images/widget-icon.svg" alt="" />
+            <img src={widget} alt="widget" />
           </a>
         </Widget>
         <Item>
           <span>
-            <img src="public/images/item-icon.svg" alt="" />
+            <img src={item} alt="" />
             My Items
           </span>
         </Item>
@@ -45,7 +49,7 @@ const LeftSide = (props) => {
         <a>
           <span>
             Events
-            <img src="public/images/plus-icon.svg" alt="" />
+            <img src={plus} alt="plus " />
           </span>
         </a>
         <a>
@@ -83,7 +87,7 @@ const UserInfo = styled.div`
 `;
 
 const CardBackground = styled.div`
-  background: url("public/images/card-bg.svg");
+  background: url({cardImg});
   background-position: center;
   background-size: 462px;
   height: 54px;

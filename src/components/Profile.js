@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { signOut } from "../App/userSlice";
 import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
+import userImg from '../images/user.svg'
 const Profile = () => {
   const navigate = useNavigate();
   const user = useSelector((state) => state.user.value);
@@ -19,7 +20,7 @@ const Profile = () => {
       <div className="about">
         <img
           className="pic"
-          src={user ?.photoURL ? user.photoURL : "public/images/user.svg"}
+          src={user ?.photoURL ? user.photoURL : {userImg}}
           style={{
             fontSize: "27px",
             width: "55px",

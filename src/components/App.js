@@ -13,15 +13,15 @@ import {signOut} from '../App/userSlice';
 
 const App = () => {
   const dispatch = useDispatch();
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        dispatch(signIn(user));
-      }else{
-        dispatch(signOut("/"))
-      }
-    });
-  });
+  // useEffect (()  => {
+  //    onAuthStateChanged(auth, (user) => {
+  //     if (user) {
+  //       dispatch(signIn(user));
+  //     }else{
+  //       dispatch(signOut("/"))
+  //     }
+  //   });
+  // });
   return (
     <div id="main">
       <Routes>
