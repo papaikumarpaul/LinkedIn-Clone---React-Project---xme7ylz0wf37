@@ -1,9 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
-import Photo from '../images/photo.svg';
-import Widget from '../images/widget-icon.svg';
-import Item from '../images/item-icon.svg';
+import PhotoImg from '../images/photo.svg';
+import WidgetIcon from '../images/widget-icon.svg';
+import ItemI from '../images/item-icon.svg';
 import Plus from '../images/plus-icon.svg';
 import CardImg from '../images/card-bg.svg';
 const LeftSide = (props) => {
@@ -16,7 +16,7 @@ const LeftSide = (props) => {
         <UserInfo>
           <CardBackground />
           <a>
-          <Photo src={user?.photoURL ? user.photoURL : {Photo} } alt="profile" />
+          <Photo src={user?.photoURL ? user.photoURL : {PhotoImg} } alt="profile" />
             <Link>{user && user.displayName}</Link>
           </a>
           <a>
@@ -29,12 +29,12 @@ const LeftSide = (props) => {
               <span>Connections</span>
               <span>Grow your network</span>
             </div>
-            <img src={Widget} alt="widget" />
+            <img src={WidgetIcon} alt="widget" />
           </a>
         </Widget>
         <Item>
           <span>
-            <img src={Item} alt="" />
+            <img src={ItemI} alt="icon" />
             My Items
           </span>
         </Item>

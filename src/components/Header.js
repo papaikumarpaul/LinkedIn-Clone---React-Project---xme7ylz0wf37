@@ -4,15 +4,15 @@ import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import Profile from "./Profile";
 import  HomeLogo from '../images/home-logo.svg';
-import Searchicon from '../images/search-icon.svg'
-import homeimg from '../images/nav-home.svg';
+import SearchIco from '../images/search-icon.svg'
+import HomeImg from '../images/nav-home.svg';
 import  Network from '../images/nav-network.svg';
 import Jobs from '../images/nav-jobs.svg';
 import Messaging from '../images/nav-messaging.svg'
 import Notifications from '../images/nav-notifications.svg';
-import users from '../images/user.svg';
-import down from '../images/down-icon.svg';
-import nav from '../images/nav-work.svg';
+import Users from '../images/user.svg';
+import Down from '../images/down-icon.svg';
+import NavW from '../images/nav-work.svg';
 
 const Header = (props) => {
   const user = useSelector((state) => state.user.value);
@@ -31,14 +31,14 @@ const Header = (props) => {
             <input type="text" placeholder="Search" />
           </div>
           <SearchIcon>
-            <img src={Searchicon} alt="search" />
+            <img src={SearchIco} alt="search" />
           </SearchIcon>
         </Search>
         <Nav>
           <NavList>
             <NavItem className="active">
               <a>
-                <img src={homeimg} alt="home" />
+                <img src={HomeImg} alt="home" />
                 <span>Home</span>
               </a>
             </NavItem>
@@ -72,19 +72,19 @@ const Header = (props) => {
               {user && user.photURL ? (
                 <img src={user.photURL} alt="user" />
               ) : (
-                <img src={users} alt="user" />
+                <img src={Users} alt="user" />
               )}
               <span>
                Me
-                <img src={down}/>
+                <img src={Down}/>
               </span>
               {showUser && <Profile />}
             </User>
             <Work>
-              <img src={nav} alt="work" />
+              <img src={NavW} alt="work" />
               <span>
                 Work
-                <img src={down} alt="" />
+                <img src={Down} alt="down" />
               </span>
             </Work>
           </NavList>
