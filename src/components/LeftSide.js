@@ -1,11 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
-import photo from '../images/photo.svg';
-import widget from '../images/widget-icon.svg';
-import item from '../images/item-icon.svg';
-import plus from '../images/plus-icon.svg'
-import cardImg from '../images/card-bg.svg';
+import Photo from '../images/photo.svg';
+import Widget from '../images/widget-icon.svg';
+import Item from '../images/item-icon.svg';
+import Plus from '../images/plus-icon.svg';
+import CardImg from '../images/card-bg.svg';
 const LeftSide = (props) => {
   
   const user = useSelector((state) => state.user.value);
@@ -16,9 +16,7 @@ const LeftSide = (props) => {
         <UserInfo>
           <CardBackground />
           <a>
-          <Photo src={user?.photoURL ? user.photoURL : {photo} } alt="profile" />
-           
-            
+          <Photo src={user?.photoURL ? user.photoURL : {Photo} } alt="profile" />
             <Link>{user && user.displayName}</Link>
           </a>
           <a>
@@ -31,12 +29,12 @@ const LeftSide = (props) => {
               <span>Connections</span>
               <span>Grow your network</span>
             </div>
-            <img src={widget} alt="widget" />
+            <img src={Widget} alt="widget" />
           </a>
         </Widget>
         <Item>
           <span>
-            <img src={item} alt="" />
+            <img src={Item} alt="" />
             My Items
           </span>
         </Item>
@@ -49,7 +47,7 @@ const LeftSide = (props) => {
         <a>
           <span>
             Events
-            <img src={plus} alt="plus " />
+            <img src={Plus} alt="plus " />
           </span>
         </a>
         <a>
@@ -87,7 +85,7 @@ const UserInfo = styled.div`
 `;
 
 const CardBackground = styled.div`
-  background: url({cardImg});
+  background: url({CardImg});
   background-position: center;
   background-size: 462px;
   height: 54px;
