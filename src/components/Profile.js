@@ -20,7 +20,7 @@ const Profile = () => {
       <div className="about">
         <img
           className="pic"
-          src={user ?.photoURL ? user.photoURL : {userImg}}
+          src={user?.photoURL ? user.photoURL : {userImg}}
           style={{
             fontSize: "27px",
             width: "55px",

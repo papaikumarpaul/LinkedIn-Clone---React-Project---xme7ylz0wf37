@@ -132,6 +132,7 @@ const Main = () => {
 
   return (
     <Container>
+      
       <ShareBox>
         <div>
         <img
